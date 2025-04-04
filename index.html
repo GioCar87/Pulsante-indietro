@@ -6,15 +6,15 @@
             if (window.opener) {
                 window.opener.history.back(); // Torna indietro nella scheda originale
                 window.close(); // Chiude questa scheda
-            } else if (document.referrer) {
-                window.location.href = document.referrer; // Torna alla pagina precedente
+            } else if (history.length > 1) {
+                history.back(); // Torna indietro normalmente
             } else {
-                window.location.href = "https://sites.google.com/view/tuo-sito"; // Fallback
+                document.body.innerHTML = "<h1>Errore: Impossibile tornare indietro</h1><p>Non c'è una pagina precedente nella cronologia.</p>";
             }
         };
     </script>
 </head>
 <body>
-    <p>Se non vieni reindirizzato, <a href="javascript:window.history.back();">clicca qui</a>.</p>
+    <p>Se non vieni reindirizzato, <a href="javascript:history.back();">clicca qui</a>.</p>
 </body>
 </html>
