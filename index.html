@@ -1,13 +1,17 @@
 <html>
 <head>
-    <title>Pulsante Indietro</title>
+    <title>Redirect Indietro</title>
     <script>
-        function goBack() {
-            window.open(document.referrer, "_self");
-        }
+        window.onload = function() {
+            if (document.referrer) {
+                window.location.href = document.referrer; // Torna alla pagina precedente
+            } else {
+                window.location.href = "https://sites.google.com/view/tuo-sito"; // Pagina di fallback
+            }
+        };
     </script>
 </head>
 <body>
-    <button onclick="goBack()">⬅ Torna Indietro ti pregoooooo</button>
+    <p>Se non vieni reindirizzato, <a href="javascript:window.history.back();">clicca qui</a>.</p>
 </body>
 </html>
