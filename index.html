@@ -31,16 +31,18 @@
 <body>
 
   <h1>🔙 Vuoi tornare indietro?</h1>
-  <button onclick="goBack()">Torna indietro</button>
+  <button onclick="goBack()">Torna indietro222</button>
 
   <div id="msg"></div>
 
   <script>
     function goBack() {
-      if (document.referrer && document.referrer !== window.location.href) {
+      if (window.history.length > 1) {
         window.history.back();
+      } else if (document.referrer && document.referrer !== window.location.href) {
+        window.location.href = document.referrer;
       } else {
-        document.getElementById("msg").innerText = "❌ Impossibile tornare indietro: nessuna pagina precedente trovata.";
+        document.getElementById("msg").innerText = "❌ Nessuna cronologia o referrer disponibile.";
       }
     }
   </script>
