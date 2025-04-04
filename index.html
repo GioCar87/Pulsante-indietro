@@ -1,20 +1,49 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
-    <title>Indietro</title>
-    <script>
-        window.onload = function() {
-            if (window.opener) {
-                window.opener.history.back(); // Torna indietro nella scheda originale
-                window.close(); // Chiude questa scheda
-            } else if (history.length > 1) {
-                history.back(); // Torna indietro normalmente
-            } else {
-                document.body.innerHTML = "<h1>Errore: Impossibile tornare indietro</h1><p>Non c'è una pagina precedente nella cronologia.</p>";
-            }
-        };
-    </script>
+  <meta charset="UTF-8">
+  <title>Torna Indietro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #msg {
+      margin-top: 30px;
+      font-size: 16px;
+      color: red;
+    }
+  </style>
 </head>
 <body>
-    <p>Se non vieni reindirizzato, <a href="javascript:history.back();">clicca qui</a>.</p>
+
+  <h1>🔙 Vuoi tornare indietro?</h1>
+  <button onclick="goBack()">Torna indietro</button>
+
+  <div id="msg"></div>
+
+  <script>
+    function goBack() {
+      if (document.referrer && document.referrer !== window.location.href) {
+        window.history.back();
+      } else {
+        document.getElementById("msg").innerText = "❌ Impossibile tornare indietro: nessuna pagina precedente trovata.";
+      }
+    }
+  </script>
+
 </body>
 </html>
