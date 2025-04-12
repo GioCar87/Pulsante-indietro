@@ -1,51 +1,29 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Torna Indietro</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commenti</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
+      margin: 0;
+      padding: 0;
     }
-    button {
-      padding: 12px 24px;
-      font-size: 18px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    #msg {
-      margin-top: 30px;
-      font-size: 16px;
-      color: red;
+    #cusdis_thread {
+      min-height: 1000px;
+      max-width: 100%;
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
-
-  <h1>🔙 Vuoi tornare indietro?</h1>
-  <button onclick="goBack()">Torna indietro222</button>
-
-  <div id="msg"></div>
-
-  <script>
-    function goBack() {
-      if (window.history.length > 1) {
-        window.history.back();
-      } else if (document.referrer && document.referrer !== window.location.href) {
-        window.location.href = document.referrer;
-      } else {
-        document.getElementById("msg").innerText = "❌ Nessuna cronologia o referrer disponibile.";
-      }
-    }
-  </script>
-
+  <div id="cusdis_thread"
+       data-host="https://cusdis.com"
+       data-app-id="153b1d58-726b-4af1-98f7-aeb3e9276a35"
+       data-page-id="pagina-commenti"
+       data-page-url="https://sites.google.com/timretail.it/home"
+       data-page-title="Commenti degli utenti">
+  </div>
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </body>
 </html>
