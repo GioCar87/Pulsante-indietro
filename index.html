@@ -5,25 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Commenti</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
+    /* CSS per personalizzare l'altezza e la larghezza del contenitore dei commenti */
     #cusdis_thread {
-      min-height: 1000px;
-      max-width: 100%;
+      width: 100%; /* Fa sì che il contenitore prenda tutta la larghezza disponibile */
+      min-height: 1800px; /* Imposta l'altezza minima dei commenti, prova a cambiare questo valore */
+      max-width: 1000px; /* Imposta una larghezza massima per il contenitore */
+      margin: 0 auto; /* Centra il contenitore nella pagina */
       padding: 1rem;
     }
   </style>
 </head>
 <body>
+  <!-- Il div che ospita i commenti di Cusdis -->
   <div id="cusdis_thread"
        data-host="https://cusdis.com"
        data-app-id="153b1d58-726b-4af1-98f7-aeb3e9276a35"
        data-page-id="pagina-commenti"
-       data-page-url="https://sites.google.com/timretail.it/home"
+       data-page-url="https://giocar87.github.io/commenti-cusdis/"
        data-page-title="Commenti degli utenti">
   </div>
+
+  <!-- Script per caricare Cusdis -->
   <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </body>
 </html>
