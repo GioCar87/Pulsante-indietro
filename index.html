@@ -5,18 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Commenti</title>
   <style>
-    /* CSS per personalizzare l'altezza e la larghezza del contenitore dei commenti */
+    /* Impostazioni base per la visualizzazione del contenitore */
     #cusdis_thread {
-      width: 100%; /* Fa sì che il contenitore prenda tutta la larghezza disponibile */
-      min-height: 1800px; /* Imposta l'altezza minima dei commenti, prova a cambiare questo valore */
-      max-width: 1000px; /* Imposta una larghezza massima per il contenitore */
-      margin: 0 auto; /* Centra il contenitore nella pagina */
+      width: 100%; /* Imposta la larghezza al 100% */
+      max-width: 1000px; /* Imposta una larghezza massima */
+      margin: 20px auto; /* Centra il contenitore e aggiungi un margine */
       padding: 1rem;
+    }
+
+    /* Stile per il titolo "Lascia un commento!" */
+    .comment-title {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center; /* Centra il testo */
+      margin-bottom: 20px; /* Aggiungi spazio tra il titolo e il frame dei commenti */
     }
   </style>
 </head>
 <body>
-  <!-- Il div che ospita i commenti di Cusdis -->
+  <!-- Scritta sopra il frame dei commenti -->
+  <div class="comment-title">Lascia un commento!</div>
+
+  <!-- Contenitore per il box dei commenti Cusdis -->
   <div id="cusdis_thread"
        data-host="https://cusdis.com"
        data-app-id="153b1d58-726b-4af1-98f7-aeb3e9276a35"
@@ -27,5 +37,19 @@
 
   <!-- Script per caricare Cusdis -->
   <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+  <!-- Script per forzare la modifica della dimensione dopo il caricamento -->
+  <script>
+    window.addEventListener('load', function() {
+      // Attendere che Cusdis sia completamente caricato
+      setTimeout(function() {
+        var cusdisFrame = document.getElementById('cusdis_thread').querySelector('iframe');
+        if (cusdisFrame) {
+          // Modifica l'altezza del frame di Cusdis
+          cusdisFrame.style.height = '1800px'; // Modifica l'altezza a 1800px (o la misura che desideri)
+        }
+      }, 2000); // Attendere 2 secondi per permettere a Cusdis di caricare completamente
+    });
+  </script>
 </body>
 </html>
